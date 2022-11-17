@@ -1,0 +1,95 @@
+/* CSS Document */
+
+.topbar{
+    background: #6AC0CF;
+}
+
+.div_interno .encabezado{
+	background-color: #2E9BA2; /* layer fill content */
+}
+
+table.modal_table th{
+	background-color: #6AC0CF;
+}
+
+div.pager span.active {
+    background: #2E9BA2;
+}
+
+.btnPrincipal{
+    background-color: #6AC0CF !important;
+    -moz-box-shadow: 0 2px 0 #2E9BA2;
+    -webkit-box-shadow: 0 2px 0 #2E9BA2;
+    box-shadow: 0 2px 0 #2E9BA2;
+}
+
+.btnPrincipal:hover{
+    background-color: #2E9BA0 !important;
+}
+.onoffswitch-inner:before {
+    background-color: #6AC0CF;
+}
+
+
+.tabs dd.active{
+	border-top: 2px solid #6AC0CF;
+}
+
+
+.opt_panel_1{
+	background-color: rgba(0,140,199,0.06);
+}
+
+.ver_obser{
+	background-image: url(../imagenes/ver_derecha.png);
+	background-repeat:no-repeat; 
+    width:16px;
+    height:16px;
+    position:relative;
+    float:left;
+    cursor: pointer;
+}
+
+
+.ind_observaciones{
+	background-image: url(../imagenes/icon-convencion-disponible.png);
+	background-repeat:no-repeat; 
+    width:10px;
+    height:10px;
+    position:relative;
+    float:right;
+}
+
+
+div.login #unFormulario input.btnIniciarsesion{
+    background-color: #6AC0CF;
+}
+
+
+div.horarios_profesionales .profesional .nombre{
+    background-color: #6AC0CF; /* layer fill content */
+}
+
+.full #tabla_encabezado{
+    background: #6AC0CF;
+}
+
+
+.onoffswitch-inner:before {
+    background-color: #6AC0CF;
+}
+
+
+ul.dropdown a:hover		            { background: #2E9BA0; }
+ul.dropdown a:active                { background: #2E9BA0; }
+
+ul.dropdown ul 						{background: #2E9BA0; }
+
+
+.div_formula {
+	border: 1px solid #2E9BA0 !important;
+}
+
+
+
+

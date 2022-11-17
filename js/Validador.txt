@@ -1,0 +1,36 @@
+required: "obligatorio",
+email: "Introduzca una direcci\u00F3n de correo electr\u00F3nico v\u00E1lida.",
+url: "Introduzca una URL v\u00E1lida.",
+date: "Introduzca una fecha v\u00E1lida.",  02/02/2013
+dateISO: "Introduzca una fecha v\u00E1lida (ISO).",
+number: "Introduzca un n\u00FAmero v\u00E1lido.",
+digits: "Introduzca s\u00F3lo d\u00EDgitos.",
+creditcard: "Introduzca un n\u00FAmero de tarjeta de cr\u00E9dito",
+equalTo: "Introduzca el mismo valor de nuevo.",
+maxlength: $.validator.format("Por favor, no entres m\u00E1s de {0} caracteres."),
+minlength: $.validator.format("Escriba al menos {0} caracteres."),
+rangelength: $.validator.format("Introduzca un valor entre {0} y {1} caracteres."),
+range: $.validator.format("Introduzca un valor entre {0} y {1}."),
+max: $.validator.format("Introduzca un valor menor o igual a {0}."),
+min: $.validator.format("Introduzca un valor mayor o igual a {0}.")
+
+
+
+¿Como agregar Rules a los elementos?
+
+////////////////////////////////////
+$( "#myinput" ).rules( "add", {
+  required: true,
+  minlength: 2,
+  messages: {
+    required: "Required input",
+    minlength: jQuery.format("Please, at least {0} characters are necessary")
+  }
+});
+/////////////////////////////////////
+Para mas informacion: http://jqueryvalidation.org/rules/
+¿Como comparar 2 campos?: http://stackoverflow.com/questions/3571347/how-to-add-a-not-equal-to-rule-in-jquery-validation
+
+///////////////////
+Agregar solo valores alfanumericos:http://stackoverflow.com/questions/2794162/jquery-validation-plugin-accept-only-alphabetical-characters
+se debe agregar esta libreria: http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js

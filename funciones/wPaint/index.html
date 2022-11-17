@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    
+    <title>wPaint</title>
+    
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    
+    <!-- wColorPicker -->
+    <link rel="Stylesheet" type="text/css" href="lib/wColorPicker.min.css" />
+    <script type="text/javascript" src="lib/wColorPicker.min.js"></script>
+    
+    <!-- wPaint -->
+    <link rel="Stylesheet" type="text/css" href="wPaint.min.css" />
+    <script type="text/javascript" src="wPaint.min.js"></script>
+    <script type="text/javascript" src="plugins/main/wPaint.menu.main.min.js"></script>
+    <script type="text/javascript" src="plugins/text/wPaint.menu.text.min.js"></script>
+    <script type="text/javascript" src="plugins/file/wPaint.menu.main.file.min.js"></script>
+</head>
+<body>
+	<iframe width="300" height="300">
+    	
+    </iframe>
+    <div id="content">
+        <div class="content-box">
+            <div id="d_img_1" style="position:relative; width:500px; height:200px; background-color:#ffffff; margin:70px auto 20px auto; border:1px solid black"></div>
+            <center id="d_img_1-img"></center>
+            <input type="button" value="Guardar" onClick="guardar_imagen('d_img_1');" />
+            <div id="d_img_2" style="position:relative; width:500px; height:200px; background-color:#ffffff; margin:70px auto 20px auto; border:1px solid black"></div>
+            <center id="d_img_2-img"></center>
+            <input type="button" value="Guardar" onClick="guardar_imagen('d_img_2');" />
+            <script type="text/javascript">
+				var images = [];
+				
+				function censor(censor) {
+					var i = 0;
+					
+					return function(key, value) {
+						if (i !== 0 && typeof(censor) === 'object' && typeof(value) == 'object' && censor == value)
+							return '[Circular]';
+							
+							if (i >= 29) {
+								return '[Unknown]';
+							}
+							++i;
+						return value;
+					}
+				}
+				
+				function saveImg(image) {
+					var _this = this;
+					var texto_aux = JSON.stringify(_this, censor(_this));
+					var pos_aux = texto_aux.indexOf("\"theme\"");
+					if (pos_aux == -1) {
+						pos_aux = texto_aux.indexOf("'theme'");
+					}
+					texto_aux = texto_aux.slice(pos_aux + 9, pos_aux + 50);
+					var nombre_base = texto_aux.split(" ")[0];
+					
+					$.ajax({
+						type: 'POST',
+						url: 'test/upload.php',
+						data: {image: image, nombre_img: nombre_base},
+						success: function (resp) {
+							_this._displayStatus('Imagen guardada con éxito');
+							resp = $.parseJSON(resp);
+							images.push(resp.img);
+							$('#d_img_1-img').attr('src', image);
+						}
+					});
+				}
+				
+				function loadImgBg () {
+					this._showFileModal('bg', images);
+				}
+				
+				function loadImgFg () {
+					this._showFileModal('fg', images);
+				}
+				
+				// init wPaint
+				$('#d_img_1').wPaint({
+					path: '',
+					theme: 'd_img_1 standard classic',
+					menuHandle: false,
+					//menuOffsetLeft: -35,
+					menuOffsetTop: -50,
+					saveImg: saveImg,
+					loadImgBg: loadImgBg,
+					loadImgFg: loadImgFg,
+					image: '../../imagenes/queratometria_img.png',
+					mode: 'pencil',
+					lineWidth: '2',
+					fillStyle: '#000000',
+					strokeStyle: '#000000',
+					fontSize: '14'
+				});
+				
+				$('#d_img_1').wPaint.extend({
+					clear: function() {
+						//alert(JSON.stringify(this, censor(this)));
+						$('#d_img_1').wPaint('image', '../../imagenes/queratometria_img.png');
+					}
+				});
+				
+				// init wPaint
+				$('#d_img_2').wPaint({
+					path: '',
+					theme: 'd_img_2 standard classic',
+					menuHandle: false,
+					//menuOffsetLeft: -35,
+					menuOffsetTop: -50,
+					saveImg: saveImg,
+					loadImgBg: loadImgBg,
+					loadImgFg: loadImgFg,
+					image: '../../imagenes/ojos_tonometria_oi.png',
+					mode: 'pencil',
+					lineWidth: '2',
+					fillStyle: '#000000',
+					strokeStyle: '#000000',
+					fontSize: '14'
+				});
+				
+				/*$('#d_img_2').wPaint.extend({
+					clear: function() {
+						alert(2);
+						$('#d_img_2').wPaint('image', '../../imagenes/ojos_tonometria_oi.png');
+					}
+				});*/
+				
+				function guardar_imagen(id_imagen) {
+					var imageData = $("#" + id_imagen).wPaint("image");
+					
+					$.ajax({
+						type: 'POST',
+						url: 'test/upload.php',
+						data: {image: imageData, nombre_img: id_imagen},
+						success: function (resp) {
+							resp = $.parseJSON(resp);
+							images.push(resp.img);
+							$('#' + id_imagen + '-img').attr('src', imageData);
+						}
+					});
+				}
+			</script>
+        </div>
+    </div>
+</body>
+</html>

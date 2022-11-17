@@ -1,0 +1,47 @@
+/* CSS Document */
+
+div.div_color_pick {
+	width:10px;
+	height:10px;
+	display:inline-block;
+	border:1px solid #999;
+	cursor:pointer;
+}
+
+.color_pick_0 {
+	background-color:#FFFFFF !important;
+}
+
+.color_pick_1 {
+	background-color:#FF0000 !important;
+}
+
+.color_pick_2 {
+	background-color:#1A75FF !important;
+}
+
+.color_pick_3 {
+	background-color:#008800 !important;
+}
+
+.componente_color_pick_0 {
+	display:inline-block !important;
+}
+
+.componente_color_pick_1 {
+	color:#FF0000 !important;
+	font-weight:bold !important;
+	display:inline-block !important;
+}
+
+.componente_color_pick_2 {
+	color:#1A75FF !important;
+	font-weight:bold !important;
+	display:inline-block !important;
+}
+
+.componente_color_pick_3 {
+	color:#008800 !important;
+	font-weight:bold !important;
+	display:inline-block !important;
+}

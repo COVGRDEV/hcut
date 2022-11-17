@@ -1,0 +1,109 @@
+/* CSS Document */
+
+.topbar{
+    background: #FFF;
+}
+
+.div_interno .encabezado{
+	background-color: #008cc7; /* layer fill content */
+}
+
+table.modal_table th{
+	background-color: #019fe1;
+}
+
+div.pager span.active {
+    background: #008cc7;
+}
+
+.btnPrincipal{
+    background-color: #019fe1 !important;
+    -moz-box-shadow: 0 2px 0 #0081b7;
+    -webkit-box-shadow: 0 2px 0 #0081b7;
+    box-shadow: 0 2px 0 #0081b7;
+}
+
+.btnPrincipal:hover{
+    background-color: #088dc5 !important;
+}
+.onoffswitch-inner:before {
+    background-color: #019fe1;
+}
+
+
+.tabs dd.active{
+	border-top: 2px solid #019fe1;
+}
+
+
+.opt_panel_1{
+	background-color: rgba(0,140,199,0.15);
+}
+
+.ver_obser{
+	background-image: url(../imagenes/ver_derecha.png);
+	background-repeat:no-repeat; 
+    width:16px;
+    height:16px;
+    position:relative;
+    float:left;
+    cursor: pointer;
+}
+
+.ocultar_obser{
+	background-image: url(../imagenes/ver_abajo.png);
+	background-repeat:no-repeat; 
+    width:16px;
+    height:16px;
+    position:relative;
+    float:left;
+    cursor: pointer;
+}
+
+.ind_observaciones{
+	background-image: url(../imagenes/icon-convencion-disponible.png);
+	background-repeat:no-repeat; 
+    width:10px;
+    height:10px;
+    position:relative;
+    float:right;
+}
+
+div.login #unFormulario input.btnIniciarsesion{
+    background-color: #019fe1;
+}
+
+div.horarios_profesionales .profesional .nombre{
+    background-color: #019fe1; /* layer fill content */
+}
+
+.full #tabla_encabezado{
+    background: #019FE1;
+}
+
+.onoffswitch-inner:before {
+    background-color: #019fe1;
+}
+
+ul.dropdown a:hover	{ background: #088dc5; }
+ul.dropdown a:active { background: #088dc5; }
+
+ul.dropdown ul {background: #F4F4F4; }
+
+.div_formula {
+	border: 1px solid #088dc5 !important;
+}
+
+div.div_contenedor_lista_rec #d_header {
+	background-color: #019fe1;
+}
+
+div.div_panel_der #d_header {
+	background-color: #019fe1;
+}
+
+div.div_barra_progreso_int {
+    border: 1px solid #008cc7;
+    background-color: #019fe1;
+    color: #fff;
+}
